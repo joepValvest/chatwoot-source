@@ -1,0 +1,28 @@
+# Use official Chatwoot image as base
+FROM chatwoot/chatwoot:latest
+
+# Copy our WAHA integration files
+COPY app/models/channel/waha.rb /app/app/models/channel/waha.rb
+COPY app/controllers/webhooks/waha_controller.rb /app/app/controllers/webhooks/waha_controller.rb
+COPY app/jobs/webhooks/waha_events_job.rb /app/app/jobs/webhooks/waha_events_job.rb
+COPY app/services/waha /app/app/services/waha
+COPY app/controllers/api/v1/accounts/channels/waha_channels_controller.rb /app/app/controllers/api/v1/accounts/channels/waha_channels_controller.rb
+COPY db/migrate/20260128160954_create_channel_waha.rb /app/db/migrate/20260128160954_create_channel_waha.rb
+COPY config/routes.rb /app/config/routes.rb
+COPY app/jobs/send_reply_job.rb /app/app/jobs/send_reply_job.rb
+COPY app/models/account.rb /app/app/models/account.rb
+
+# Copy frontend files
+COPY app/javascript/dashboard/routes/dashboard/settings/inbox/channels/Waha.vue /app/app/javascript/dashboard/routes/dashboard/settings/inbox/channels/Waha.vue
+COPY app/javascript/dashboard/api/channel/wahaChannel.js /app/app/javascript/dashboard/api/channel/wahaChannel.js
+COPY app/javascript/dashboard/routes/dashboard/settings/inbox/ChannelFactory.vue /app/app/javascript/dashboard/routes/dashboard/settings/inbox/ChannelFactory.vue
+COPY app/javascript/dashboard/routes/dashboard/settings/inbox/ChannelList.vue /app/app/javascript/dashboard/routes/dashboard/settings/inbox/ChannelList.vue
+COPY app/javascript/dashboard/i18n/locale/en/inboxMgmt.json /app/app/javascript/dashboard/i18n/locale/en/inboxMgmt.json
+
+WORKDIR /app
+
+# Expose port
+EXPOSE 3000
+
+# Use the official start command
+CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0", "-p", "3000"]
