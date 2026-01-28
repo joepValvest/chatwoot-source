@@ -436,6 +436,46 @@
           "ERROR_MESSAGE": "We were not able to save the telegram channel"
         }
       },
+      "WAHA_CHANNEL": {
+        "TITLE": "WhatsApp (WAHA) Channel",
+        "DESC": "Integrate with WAHA (WhatsApp HTTP API) to support your customers on WhatsApp.",
+        "CHANNEL_NAME": {
+          "LABEL": "Inbox Name",
+          "PLACEHOLDER": "Enter your inbox name (eg: WhatsApp Support)",
+          "ERROR": "Please enter a valid inbox name"
+        },
+        "PHONE_NUMBER": {
+          "LABEL": "Phone Number",
+          "PLACEHOLDER": "Enter phone number (eg: 1234567890)",
+          "SUBTITLE": "The phone number associated with your WAHA session (numbers only, no + or spaces)",
+          "ERROR": "Please enter a valid phone number"
+        },
+        "WAHA_API_URL": {
+          "LABEL": "WAHA API URL",
+          "PLACEHOLDER": "https://waha.yourdomain.com",
+          "SUBTITLE": "The URL of your WAHA server",
+          "ERROR": "Please enter a valid URL starting with http:// or https://"
+        },
+        "WAHA_API_KEY": {
+          "LABEL": "WAHA API Key",
+          "PLACEHOLDER": "Enter your WAHA API key",
+          "SUBTITLE": "The API key for authenticating with your WAHA server",
+          "ERROR": "Please enter a valid API key"
+        },
+        "SESSION_NAME": {
+          "LABEL": "Session Name",
+          "PLACEHOLDER": "default",
+          "SUBTITLE": "The WAHA session name (usually 'default')"
+        },
+        "WEBHOOK_URL": {
+          "LABEL": "Configure this webhook URL in WAHA"
+        },
+        "SUBMIT_BUTTON": "Create WAHA Channel",
+        "API": {
+          "SUCCESS_MESSAGE": "WAHA channel created successfully! Configure this webhook in WAHA: {webhookUrl}",
+          "ERROR_MESSAGE": "We were not able to create the WAHA channel. Please check your configuration."
+        }
+      },
       "AUTH": {
         "TITLE": "Choose a channel",
         "DESC": "Chatwoot supports live-chat widgets, Facebook Messenger, WhatsApp, Emails, etc., as channels. If you want to build a custom channel, you can create it using the API channel. To get started, choose one of the channels below.",
@@ -453,6 +493,10 @@
           "WHATSAPP": {
             "TITLE": "WhatsApp",
             "DESCRIPTION": "Support your customers on WhatsApp"
+          },
+          "WAHA": {
+            "TITLE": "WhatsApp (WAHA)",
+            "DESCRIPTION": "Connect using WhatsApp HTTP API (WAHA)"
           },
           "EMAIL": {
             "TITLE": "Email",
